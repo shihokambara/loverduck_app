@@ -1,4 +1,5 @@
 class AlertsController < ApplicationController
+  before_action :authenticate_user!, only: [:update]
   def start_call
     tel='+819072792373'
     begin
@@ -14,6 +15,10 @@ class AlertsController < ApplicationController
     rescue  => e
       puts e
     end
+  end
+
+  def update
+    Alert.find(id: params[:alet_id]).completed!
   end
 
    def index

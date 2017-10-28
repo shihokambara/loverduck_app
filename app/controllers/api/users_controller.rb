@@ -1,6 +1,7 @@
 module Api
 
   class UsersController < ApiController
+    before_action :authenticate_user!, only: [:edit]
     before_action :set_user, only: [:edit]
 
     def create
@@ -11,6 +12,16 @@ module Api
     end
 
     def destroy
+    end
+
+    def profile
+      render json: {
+        data: {
+          mail: current_user.email,
+          user: current_user.username,
+          tel: current_user.tel
+        }
+      }, status: 200
     end
 
     private

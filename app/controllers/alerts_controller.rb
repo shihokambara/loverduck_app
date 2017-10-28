@@ -1,5 +1,6 @@
 class AlertsController < ApplicationController
-  def start_call(tel='+819072792373') 
+  def start_call
+    tel='+819072792373'
     begin
       account_id = "ACdd2768539e44741e44bb35c23cfa78d0"
       auth_token = ENV["AUTH_TOKEN"]
@@ -13,7 +14,6 @@ class AlertsController < ApplicationController
     rescue Twilio::REST::RequestError => e
       puts e
     end
-    redirect_to action: :index
   end
 
    def index

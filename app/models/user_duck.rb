@@ -1,0 +1,2 @@
+class UserDuck < ApplicationRecord
+end

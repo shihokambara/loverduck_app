@@ -5,7 +5,7 @@ class AlertsController < ApplicationController
       account_id = "ACdd2768539e44741e44bb35c23cfa78d0"
       auth_token = ENV["AUTH_TOKEN"]
       client = Twilio::REST::Client.new(account_id, auth_token)
-      client.account.calls.create(
+      client.api.account.calls.create(
         from: "+815031961573",
         to: tel,
         url: "https://loverduck.herokuapp.com/calling",

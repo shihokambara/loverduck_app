@@ -11,7 +11,7 @@ class AlertsController < ApplicationController
         url: "https://loverduck.herokuapp.com/calling",
         method: "GET"
       )
-    rescue Twilio::REST::RequestError => e
+    rescue  => e
       puts e
     end
   end

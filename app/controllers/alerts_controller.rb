@@ -6,16 +6,14 @@ class AlertsController < ApplicationController
       client = Twilio::REST::Client.new(account_id, auth_token)
       client.account.calls.create(
         from: "+815031961573",
-        to: tel,  #"+81",
-        url: "http://75d2c7ab.ngrok.com/dial",　#ここは自分が取得したurl（後ほど解説）
-        method: "GET",　#デフォルトはpostなのでgetを指定
+        to: tel,
+        url: "http://75d2c7ab.ngrok.com/dial",
+        method: "GET"
       )
-
-   #error handling
-   rescue Twilio::REST::RequestError => e
-      puts e.message
-   end
-   redirect_to action: :index
+    rescue Twilio::REST::RequestError => e
+      puts e
+    end
+    redirect_to action: :index
   end
 
    def index

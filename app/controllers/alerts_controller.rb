@@ -7,7 +7,7 @@ class AlertsController < ApplicationController
       client.account.calls.create(
         from: "+815031961573",
         to: tel,
-        url: "http://75d2c7ab.ngrok.com/dial",
+        url: "https://loverduck.herokuapp.com/calling",
         method: "GET"
       )
     rescue Twilio::REST::RequestError => e

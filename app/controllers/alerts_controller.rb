@@ -18,8 +18,12 @@ class AlertsController < ApplicationController
 
    def index
     response = Twilio::TwiML::Response.new do |r|　#TwiMLを作成するためのモジュール
-      r.Say '緊急通知', voice: 'alice'
+      r.Say "It's alert", voice: 'alice'
     end
     render :xml => response.text
   end
+
+   def calling_xml
+   end
+
 end

@@ -23,8 +23,8 @@ class AlertsController < ApplicationController
     render :xml => response.text
   end
 
-   def calling_xml
-      format.xml { render :layout => false }
+   def calling
+     render file: 'public/calling.xml', status: 200, layout: false
    end
 
 end

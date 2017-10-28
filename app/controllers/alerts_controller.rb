@@ -24,6 +24,7 @@ class AlertsController < ApplicationController
   end
 
    def calling_xml
+      format.xml { render :layout => false }
    end
 
 end

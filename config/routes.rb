@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'home#index'
   get 'home/index'
-  get 'calling' => 'alerts#calling_xml'
+  get 'calling' => 'alerts#calling'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

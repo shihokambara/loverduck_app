@@ -18,6 +18,7 @@ class AlertsController < ApplicationController
     duck = Duck.find_by(unique_id: params[:unique_id])
     alert = Alert.new(duck_id: duck.id, called_at: Time.now, status: 0 )
     if alert.save
+      start_call
       render json: alert
     else
       return_error

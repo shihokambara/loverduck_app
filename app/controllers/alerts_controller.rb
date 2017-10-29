@@ -1,5 +1,5 @@
 class AlertsController < ApplicationController
-  before_action :authenticate_user!, only: [:update]
+  before_action :authenticate
   def start_call
     tel='+819072792373'
     begin

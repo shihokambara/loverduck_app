@@ -9,13 +9,14 @@ Bundler.require(*Rails.groups)
 module LoverduckApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.api_only = true
+    config.debug_exception_response_format = :api
     config.load_defaults 5.1
     config.middleware.use Rack::Cors do
       allow do
         origins '*'
         resource '*',
           :headers => :any,
-          :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client'],
           :methods => [:get, :post, :options, :delete, :put]
       end
     end

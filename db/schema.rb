@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171028131612) do
+ActiveRecord::Schema.define(version: 20171029013240) do
 
   create_table "alerts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "called_at"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20171028131612) do
     t.string "address"
     t.string "name"
     t.integer "postal_code"
+    t.boolean "status"
   end
 
   create_table "reaction_logs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -54,22 +55,14 @@ ActiveRecord::Schema.define(version: 20171028131612) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
+    t.string "name"
+    t.string "password"
+    t.string "mail"
+    t.string "access_token"
+    t.string "tel"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "tel"
-    t.string "name"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["access_token"], name: "index_users_on_access_token", unique: true
   end
 
 end

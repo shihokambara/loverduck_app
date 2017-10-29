@@ -1,14 +1,7 @@
 class User < ApplicationRecord
-  # Include default devise modules.
-  devise :database_authenticatable, :registerable,
-          :recoverable, :rememberable, :trackable, :validatable,
-          :confirmable, :omniauthable
-  include DeviseTokenAuth::Concerns::User
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  has_secure_token :access_token
   has_many :user_ducks
   has_many :ducks, through: :user_ducks
-  has_many :reaction_logs
+  #has_secure_tokenという記述を入れることで、Userモデルにデータが追加されたときに、自動的に
+  #Userモデルが持つtokenという属性にセキュアトークンが生成され保存されます。
 end

@@ -26,15 +26,23 @@ module Api
     end
 
     def detail
+      duck = Duck.find(params[:duck_id])
+      render json: {
+        name: duck.name,
+        address: duck.address,
+        postal_code: duck.postal_code,
+        status: duck.status
+      }, status: 200
+    end
+
+    def dailylog
         duck = Duck.find(params[:duck_id])
         @daily_logs = duck.daily_logs
         render 'details', formats: 'json', handlers: 'jbuilder'
     end
 
-    def deilylog
-    end
-
     def update_alertlog
+
     end
 
     def alertlog

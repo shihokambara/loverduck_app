@@ -18,7 +18,12 @@ class AlertsController < ApplicationController
   end
 
   def update
-    Alert.find(id: params[:alet_id]).completed!
+    data = params[:data]
+    if data.present?
+      Alert.find(id: data[:alet_id]).completed!
+    else
+      return_error
+    end
   end
 
    def index

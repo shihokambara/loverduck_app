@@ -2,7 +2,7 @@ class AlertsController < ApplicationController
  # before_action :authenticate, 
 
   def create_alert
-    duck = Duck.find(params[:unique_id])
+    duck = Duck.find_by(unique_id: params[:unique_id])
     alert = Alert.new(duck_id: duck.id, called_at: Time.now, status: 0 )
     if alert.save
       render json: alert

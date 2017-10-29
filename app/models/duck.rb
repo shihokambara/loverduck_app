@@ -3,4 +3,5 @@ class Duck < ApplicationRecord
   has_many :users, through: :user_ducks
   has_many :alerts
   has_many :daily_logs
+
 end

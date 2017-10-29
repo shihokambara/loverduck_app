@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   post 'api/duck/detail' => 'api/ducks#detail'
   post 'api/duck/dailylog' => 'api/ducks#dailylog'
   post 'api/duck/alertlog' => 'api/ducks#alertlog'
-  post 'api/duck/alertlog/update' => 'api/ducks#update_alertlog'
+  post 'api/duck/alertlog/update' => 'alerts#update_alertlog'
   post 'api/alert/create' => 'alerts#create_alert'
   post 'api/bath/create' => 'alerts#start_bath'
   post 'api/bath/finish' => 'alerts#finish_bath'

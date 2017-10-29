@@ -54,16 +54,7 @@ module Api
         render 'daily_logs', formats: 'json', handlers: 'jbuilder'
     end
 
-    def update_alertlog
-      alert = Alert.find(params[:alert_id].to_i)
-      if alert.present?
-        alert.update!(status: params[:status].to_i)
-        render json: { alert_id: alert.id, status: params[:status] }, status: 200
-      else
-        render json: { message: 'invalid alert id' }, status: 500
-      end
-    end
-
+    
     def alertlog
       puts params[:duck_id]
       duck = Duck.find_by(id: params[:duck_id])

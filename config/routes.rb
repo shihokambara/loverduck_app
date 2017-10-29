@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   post 'api/auth/signup' => "api/authorizations#signup"
   post 'api/auth/signin' => "api/authorizations#signin"
   post 'api/auth/password/edit' => "api/authorizations#edit_password"
-  post 'api/auth/profile/edit' => "devise_token_auth/registrations#edit"
+  post 'api/auth/profile/edit' => "api/authorizations#edit_profile"
   post 'api/duck/create' => "api/ducks#create"
   post 'api/duck/register' => 'api/ducks#register'
   post 'api/duck/list' => 'api/ducks#list'

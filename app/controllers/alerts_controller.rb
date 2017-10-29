@@ -1,5 +1,5 @@
 class AlertsController < ApplicationController
-  before_action :authenticate
+ # before_action :authenticate, 
 
   def create_alert
     duck = Duck.find(params[:unique_id])

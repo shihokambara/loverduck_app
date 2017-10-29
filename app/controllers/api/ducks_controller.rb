@@ -16,6 +16,7 @@ module Api
     end
 
     def list
+      puts current_user
       if current_user.present?
         @ducks = current_user.ducks
       else

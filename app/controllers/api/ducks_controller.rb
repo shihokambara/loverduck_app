@@ -50,8 +50,13 @@ module Api
     end
 
     def alertlog
-      duck = Duck.find(params[:duck_id])
-      @alert_logs = duck.alerts
+      puts params[:duck_id]
+      duck = Duck.find_by(id: params[:duck_id])
+      if duck.present?
+        @alert_logs = duck.alerts
+      else
+        @alert_logs = nil
+      end
       render 'alertlog', formats: 'json', handlers: 'jbuilder'
     end
 

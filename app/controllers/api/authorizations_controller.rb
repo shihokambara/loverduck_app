@@ -43,16 +43,6 @@ module Api
       end
     end
 
-    protected
-
-    def render_unauthorized
-      # render_errors(:unauthorized, ['invalid token'])
-      obj = { message: 'token invalid' }
-      render json: obj, status: :unauthorized
-    end
-
-
-
   end
 end
  

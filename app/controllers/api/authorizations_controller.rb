@@ -19,7 +19,7 @@ module Api
         if user.present?
           render json: token
         else
-          render_unauthorized
+          render json: { "message": 'email or password invalid' }
         end
       else
         render_unauthorized

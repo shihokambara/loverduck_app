@@ -38,7 +38,7 @@ module Api
     def dailylog
         duck = Duck.find(params[:duck_id])
         @daily_logs = duck.daily_logs
-        render 'details', formats: 'json', handlers: 'jbuilder'
+        render 'daily_logs', formats: 'json', handlers: 'jbuilder'
     end
 
     def update_alertlog

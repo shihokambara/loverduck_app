@@ -19,6 +19,7 @@ module Api
       puts current_user
       if current_user.present?
         @ducks = current_user.ducks
+        render 'list', formats: 'json', handlers: 'jbuilder'
       else
         return_error
       end
@@ -27,6 +28,7 @@ module Api
     def detail
         duck = Duck.find(params[:duck_id])
         @daily_logs = duck.daily_logs
+        render 'details', formats: 'json', handlers: 'jbuilder'
     end
 
     def deilylog
@@ -38,6 +40,7 @@ module Api
     def alertlog
       duck = Duck.find(params[:duck_id])
       @alert_logs = duck.alerts
+      render 'alertlog', formats: 'json', handlers: 'jbuilder'
     end
 
     def reaction_log

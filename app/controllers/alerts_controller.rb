@@ -47,12 +47,6 @@ class AlertsController < ApplicationController
     end
   end
 
-  def update
-      alert = Alert.find_by(id: params[:alert_id])
-      alert.completed!
-      render json: { alert_id: alert.id, status: alert.status.to_i }, status: 200
-  end
-
    def index
     response = Twilio::TwiML::Response.new do |r|　#TwiMLを作成するためのモジュール
       r.Say "It's alert", voice: 'alice'

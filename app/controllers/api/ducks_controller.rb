@@ -42,11 +42,10 @@ module Api
     end
 
     def update_alertlog
-
       alert = Alert.find_by(id: params[:alert_id])
-      alert.completed!
+      puts params
+      alert.update(status: params[:status].to_i)
       render json: { alert_id: alert.id, status: alert.status.to_i }, status: 200
-
     end
 
     def alertlog

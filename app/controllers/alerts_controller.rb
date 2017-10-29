@@ -3,13 +3,13 @@ class AlertsController < ApplicationController
 
   def start_bath
     duck = Duck.find_by(unique_id: params[:unique_id])
-    DailyLog.create(start_at: Time.now, duck_id: duck.id)
-    render json: dailylog
+    log = DailyLog.create(start_at: Time.now, duck_id: duck.id)
+    render json: log
   end
 
   def finish_bath
     duck = Duck.find_by(unique_id: params[:unique_id])
-    dailylog = DailyLog.where(unique_id: duck.id, end_at: nil).first
+    dailylog = DailyLog.where(duck_id: duck.id, end_at: nil).first
     dailylog.update(end_at: Time.now)
     render json: dailylog
   end

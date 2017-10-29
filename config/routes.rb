@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   post 'api/auth/profile/edit' => "api/authorizations#edit_profile"
   post 'api/duck/create' => "api/ducks#create"
   post 'api/duck/register' => 'api/ducks#register'
+  post 'api/duck/update' => 'api/ducks#update_profile'
   post 'api/duck/list' => 'api/ducks#list'
   post 'api/duck/detail' => 'api/ducks#detail'
   post 'api/duck/dailylog' => 'api/ducks#dailylog'

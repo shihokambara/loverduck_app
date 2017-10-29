@@ -2,6 +2,19 @@ module Api
   class DucksController < ApiController
     before_action :authenticate
 
+    def update_profile
+      duck = Duck.find_by(id: params[:duck_id])
+      if duck.present?
+        duck.update(name: params[:name], postal_code: params[:postal_code], address: params[:address])
+        render_ok
+      else
+        render json: {
+          message: "Duck id invalid",
+        }, status: 404
+
+      end
+    end
+
     def edit
     end
 

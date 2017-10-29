@@ -5,11 +5,9 @@ module Api
 
     def profile
       render json: {
-        data: {
           mail: current_user.mail,
           name: current_user.name,
           tel: current_user.tel
-        }
       }, status: 200
     end
 

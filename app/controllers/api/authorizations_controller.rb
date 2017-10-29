@@ -5,25 +5,19 @@ module Api
 
 
     def signup
-      data = params[:data]
-      user = User.create!(mail: data[:mail], password: data[:password], name: data[:name], tel: data[:tel])
+      user = User.create!(mail: params[:mail], password: params[:password], name: params[:name], tel: params[:tel])
       token = { "access_token": user.access_token }
       render json: token
     end
 
     def signin
-      data = params[:data]
-      if data.present?
-        user = User.where(mail: data[:mail], password: data[:password]).first
+        user = User.where(mail: params[:mail], password: params[:password]).first
         token = { "access_token": user.access_token }
         if user.present?
           render json: token
         else
           render json: { "message": 'email or password invalid' }
         end
-      else
-        render_unauthorized
-      end
     end
 
     def profile

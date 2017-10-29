@@ -6,19 +6,13 @@ module Api
     end
 
     def create
-      data = params[:data]
-      if data.present?
-      duck = Duck.create(unique_id: data[:unique_id], postal_code: data[:postal_code], address: data[:address], password: data[:password], name: data[:name])
+      duck = Duck.create(unique_id: params[:unique_id], postal_code: params[:postal_code], address: params[:address], password: params[:password], name: params[:name])
       UserDuck.create(duck_id: duck.id, user_id: current_user.id)
       render_ok
-      else
-        return_error
-      end
     end
 
     def register
-      data = params[:data]
-      UserDuck.create(user_id: current_user.id, duck_id: data[:duck_id])
+      UserDuck.create(user_id: current_user.id, duck_id: params[:duck_id])
     end
 
     def list
@@ -30,13 +24,8 @@ module Api
     end
 
     def detail
-      data = params[:data]
-      if data.present?
-        duck = Duck.find(data[:duck_id])
+        duck = Duck.find(params[:duck_id])
         @daily_logs = duck.daily_logs
-      else
-        return_error
-      end
     end
 
     def deilylog
@@ -46,8 +35,7 @@ module Api
     end
 
     def alertlog
-      data = params[:data]
-      duck = Duck.find(data[:duck_id])
+      duck = Duck.find(params[:duck_id])
       @alert_logs = duck.alerts
     end
 

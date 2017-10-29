@@ -48,9 +48,9 @@ class AlertsController < ApplicationController
   end
 
   def update
-      alert = Alert.find(id: params[:alert_id])
+      alert = Alert.find_by(id: params[:alert_id])
       alert.completed!
-      render json: { alert_id: alert.id }, status: 200
+      render json: { alert_id: alert.id, status: alert.status.to_i }, status: 200
   end
 
    def index

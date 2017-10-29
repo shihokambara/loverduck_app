@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users
+  #resources :users
   #devise_for :users
   #mount_devise_token_auth_for 'User', at: 'api/auth'
   #namespace :api do

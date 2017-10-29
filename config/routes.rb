@@ -24,5 +24,7 @@ Rails.application.routes.draw do
   post 'api/duck/alertlog' => 'api/ducks#alertlog'
   post 'api/duck/alertlog/update' => 'api/ducks#update_alertlog'
   post 'api/alert/create' => 'alerts#create_alert'
+  post 'api/bath/create' => 'alerts#start_bath'
+  post 'api/bath/finish' => 'alerts#finish_bath'
 #  post 'api/duck/reactionlog' => 'api/ducks#reaction_log'
 end
